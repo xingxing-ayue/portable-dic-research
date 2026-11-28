@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>便携式 DIC 系统主机报价单</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+:root{--bg:#f3f5f6;--surface:#fff;--surface2:#eef1f2;--ink:#16232a;--ink2:#4b5b64;--ink3:#7d8c94;--line:#d6dee1;--line2:#e7ecee;--accent:#0b6b6b;--accent-ink:#084f4f;--accent-soft:#e0efee;--warn-bg:#fdf3e0;--warn-ink:#7a5410;--warn-line:#ecd9ae;--bad-bg:#fbecec;--bad-ink:#8c2b2b;--ok-bg:#e6f3ea;--ok-ink:#22663a;--shadow:0 1px 2px rgba(22,35,42,.06),0 10px 30px -14px rgba(22,35,42,.22);--r:10px}
+@media(prefers-color-scheme:dark){:root{--bg:#0f161a;--surface:#182228;--surface2:#202d35;--ink:#e9f0f3;--ink2:#aebec6;--ink3:#7f919c;--line:#33444e;--line2:#28373f;--accent:#3fb3ae;--accent-ink:#7fd4cf;--accent-soft:#17393a;--warn-bg:#3a2f16;--warn-ink:#e8c37a;--warn-line:#5c4a22;--bad-bg:#3d2222;--bad-ink:#f0a3a3;--ok-bg:#1e3626;--ok-ink:#8fd3a3}}
+*{box-sizing:border-box}html{overflow-x:clip}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans SC",-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}.wrap{max-width:1180px;margin:0 auto;padding:0 16px 64px}@media(min-width:900px){.wrap{padding:0 28px 80px}}
+header{padding:28px 0 0}.doc-kicker{font-size:12.5px;font-weight:700;color:var(--accent-ink);letter-spacing:.06em}h1{font-size:clamp(26px,4.5vw,36px);font-weight:900;line-height:1.2;margin:6px 0 8px}.meta{display:flex;flex-wrap:wrap;gap:8px 22px;color:var(--ink2);font-size:13.5px}.meta b{color:var(--ink)}
+/* summary card */
+.summary{margin-top:18px;background:var(--surface);border:1.5px solid var(--accent);border-radius:12px;box-shadow:var(--shadow);overflow:hidden}
+.summary-head{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;padding:16px 18px 12px;border-bottom:1px solid var(--line2)}
+.summary-head h2{margin:0;font-size:19px;font-weight:900}.summary-head p{margin:2px 0 0;color:var(--ink2);font-size:13px}
+.export-btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;border:0;font:inherit;font-size:15px;font-weight:900;padding:12px 20px;border-radius:8px;cursor:pointer;min-height:48px;white-space:nowrap}.export-btn:hover{filter:brightness(1.08)}.export-btn:disabled{opacity:.55;cursor:wait}
+.export-status{font-size:13px;color:var(--ink2)}.export-status.err{color:var(--bad-ink)}
+table.sum{width:100%;border-collapse:collapse;font-size:14px}table.sum th,table.sum td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line2);vertical-align:top}table.sum thead th{background:var(--surface2);font-size:12.5px;color:var(--ink2)}table.sum td.price{font-weight:900;font-size:16px;white-space:nowrap}table.sum tr:last-child td{border-bottom:none}
+.lowest{padding:13px 18px;background:var(--accent-soft);font-size:14px}.lowest b{font-weight:900}
+.tag{display:inline-block;font-size:11px;font-weight:700;border-radius:4px;padding:1px 7px;white-space:nowrap}.tag.ok{background:var(--ok-bg);color:var(--ok-ink)}.tag.warn{background:var(--warn-bg);color:var(--warn-ink);border:1px solid var(--warn-line)}.tag.out{background:var(--bad-bg);color:var(--bad-ink)}.tag.mut{background:var(--surface2);color:var(--ink2)}
+section{margin-top:28px}.sec-head{margin-bottom:10px}.sec-head h2{font-size:19px;font-weight:900;margin:0}.sec-head p{margin:2px 0 0;color:var(--ink2);font-size:13.5px}
+.shell{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+table.dt{width:100%;border-collapse:collapse;font-size:13px;line-height:1.55}table.dt th,table.dt td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line2);vertical-align:top;overflow-wrap:break-word}table.dt thead th{background:var(--surface2);font-size:12px;color:var(--ink2);white-space:nowrap}table.dt tbody tr:last-child td{border-bottom:none}td.n{color:var(--ink3);text-align:center}td.price{font-weight:900;white-space:nowrap}td.price .sub{display:block;font-weight:500;font-size:12px;color:var(--ink2);white-space:normal}.noprice{color:var(--bad-ink);font-weight:700}table a{color:var(--accent-ink);text-underline-offset:2px;overflow-wrap:anywhere}
+.notes{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}.notes ul{margin:0;padding-left:19px;font-size:13.5px;color:var(--ink2)}.notes li{margin-bottom:7px}.notes li b{color:var(--ink)}
+.scope{background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:var(--r);padding:12px 16px;font-size:13.5px;color:var(--warn-ink);margin-top:16px}.scope p{margin:0}
+.software{border:1.5px dashed var(--line);border-radius:var(--r);background:var(--surface);padding:20px;min-height:84px;display:flex;align-items:center}.software p{margin:0;font-size:16px;font-weight:700;color:var(--ink3)}
+footer{margin-top:36px;border-top:1px solid var(--line);padding-top:14px;font-size:12.5px;color:var(--ink3)}
+@media(max-width:760px){table.sum thead,table.dt thead{display:none}table.sum,table.sum tbody,table.sum tr,table.sum td,table.dt,table.dt tbody,table.dt tr,table.dt td{display:block;width:100%}table.sum td,table.dt td{border-bottom:none;padding:3px 16px}table.sum tr,table.dt tr{padding:12px 0;border-bottom:1px solid var(--line2)}td[data-l]::before{content:attr(data-l);display:block;font-size:11.5px;font-weight:700;color:var(--ink3)}td.n{text-align:left}td.n::before{content:"序号 ";color:var(--ink3);font-size:11.5px;font-weight:700}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="doc-kicker">报价单 · 主机部分</div>
+  <h1>便携式 DIC 系统主机报价单</h1>
+  <div class="meta"><span>报价日期：<b>2026-11-28</b></span><span>适用范围：<b>仅主机本身</b>（Mini PC / 树莓派 / FPGA 三条路线）</span><span>币种：<b>人民币</b></span></div>
+  <div class="scope"><p><b>先看总价：</b>下方汇总卡就是结论。全部型号、来源、查不到与不推荐在后面分表里。价格为 2026-11-28 不登录核查：中国官网 / 国内渠道 + 淘宝商品页显示价；查不到写查不到，不编价。</p></div>
+</header>
+
+<!-- ===== 第一屏：总价汇总 ===== -->
+<div class="summary" aria-labelledby="sum-h">
+  <div class="summary-head">
+    <div><h2 id="sum-h">总价汇总（主力档）</h2><p>每条路线只列一个主力档，先看这一张就够定预算。</p></div>
+    <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end">
+      <button type="button" class="export-btn" id="btn-export"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m6.5 10.5 5.5 5.5 5.5-5.5"/><path d="M4 20h16"/></svg>导出 Excel（全部三张表）</button>
+      <span class="export-status" id="export-status" role="status" aria-live="polite"></span>
+    </div>
+  </div>
+  <table class="sum" id="table-summary">
+    <thead><tr><th>路线</th><th>主力型号</th><th>配置</th><th>USB 3.0</th><th>人民币价</th><th>状态</th></tr></thead>
+    <tbody>
+      <tr><td data-l="路线"><b>Mini PC</b></td><td data-l="主力型号"><b>零刻 SER9 / SER9 Pro</b></td><td data-l="配置">H255</td><td data-l="USB 3.0">合格：2×USB 3.2 10Gbps + 1×USB4 + 1×Type-C，共 4 个 ≥USB 3.0 口</td><td class="price mono" data-l="人民币价">¥3,999</td><td data-l="状态"><span class="tag ok">在售</span> 淘宝零刻旗舰店显示价</td></tr>
+      <tr><td data-l="路线"><b>树莓派</b></td><td data-l="主力型号"><b>Raspberry Pi 5</b></td><td data-l="配置">8GB</td><td data-l="USB 3.0">合格：内置 2×USB 3.0</td><td class="price mono" data-l="人民币价">¥1,447.18 起</td><td data-l="状态"><span class="tag ok">有货</span> e络盟含税价；微雪 ¥1,739</td></tr>
+      <tr><td data-l="路线"><b>FPGA</b></td><td data-l="主力型号"><b>AMD Kria KD240</b></td><td data-l="配置">电机控制开发套件</td><td data-l="USB 3.0">套件接口按下单前核实为准</td><td class="price mono" data-l="人民币价">¥3,918.38</td><td data-l="状态"><span class="tag ok">有货</span> 含税，element14 30 件 / 得捷 270 件</td></tr>
+    </tbody>
+  </table>
+  <div class="lowest"><b>主机最低起步价：</b>Mini PC <b class="mono">¥1,799 起</b>（零刻 EQi13，中国官网在售）&nbsp;·&nbsp;树莓派 <b class="mono">¥570</b>（Pi 5 1GB，微雪）&nbsp;·&nbsp;FPGA <b class="mono">¥2,422.74</b>（KV260，element14，无现货）</div>
+</div>
+
+<!-- ===== 明细分表 ===== -->
+<section aria-labelledby="mini-h">
+  <div class="sec-head"><h2 id="mini-h">明细一 · Mini PC</h2><p>来源：中国官网（零刻 bee-link.com.cn）与淘宝商品页显示价。铭凡、极摩客、积核无中国人民币官网店。</p></div>
+  <div class="shell"><table class="dt" id="table-mini">
+    <thead><tr><th>序号</th><th>型号</th><th>配置</th><th>USB 3.0 情况</th><th>人民币价</th><th>来源</th><th>状态</th><th>商品链接</th></tr></thead>
+    <tbody>
+      <tr><td class="n">1</td><td data-l="型号"><b>零刻 SER8</b></td><td data-l="配置">8745HS，准系统档（起价档）</td><td data-l="USB 3.0 情况">待核实</td><td class="price mono" data-l="人民币价">¥2,109 起</td><td data-l="来源">零刻中国官网</td><td data-l="状态"><span class="tag out">缺货</span> 暂时缺货</td><td data-l="商品链接"><a href="https://www.bee-link.com.cn" target="_blank" rel="noopener">零刻中国官网</a></td></tr>
+      <tr><td class="n">2</td><td data-l="型号"><b>零刻 EQi13</b></td><td data-l="配置">13420H</td><td data-l="USB 3.0 情况">待核实</td><td class="price mono" data-l="人民币价">¥1,799 起</td><td data-l="来源">零刻中国官网</td><td data-l="状态"><span class="tag ok">在售</span></td><td data-l="商品链接"><a href="https://www.bee-link.com.cn" target="_blank" rel="noopener">零刻中国官网</a></td></tr>
+      <tr><td class="n">3</td><td data-l="型号"><b>零刻 EQ mini</b></td><td data-l="配置">304</td><td data-l="USB 3.0 情况">待核实</td><td class="price mono" data-l="人民币价">¥2,599</td><td data-l="来源">零刻中国官网</td><td data-l="状态"><span class="tag ok">在售</span></td><td data-l="商品链接"><a href="https://www.bee-link.com.cn" target="_blank" rel="noopener">零刻中国官网</a></td></tr>
+      <tr><td class="n">4</td><td data-l="型号"><b>零刻 GTi14 Ultra</b></td><td data-l="配置">185H</td><td data-l="USB 3.0 情况">待核实</td><td class="price mono" data-l="人民币价">¥3,899 起</td><td data-l="来源">零刻中国官网</td><td data-l="状态"><span class="tag ok">在售</span></td><td data-l="商品链接"><a href="https://www.bee-link.com.cn" target="_blank" rel="noopener">零刻中国官网</a></td></tr>
+      <tr><td class="n">5</td><td data-l="型号"><b>零刻 GTi15 Ultra</b></td><td data-l="配置">285H</td><td data-l="USB 3.0 情况">待核实</td><td class="price mono" data-l="人民币价">¥4,099 起</td><td data-l="来源">零刻中国官网</td><td data-l="状态"><span class="tag ok">在售</span></td><td data-l="商品链接"><a href="https://www.bee-link.com.cn" target="_blank" rel="noopener">零刻中国官网</a></td></tr>
+      <tr><td class="n">6</td><td data-l="型号"><b>零刻 SER9 MAX</b></td><td data-l="配置">H255</td><td data-l="USB 3.0 情况">待核实</td><td class="price mono" data-l="人民币价">¥7,959</td><td data-l="来源">零刻中国官网</td><td data-l="状态"><span class="tag ok">在售</span></td><td data-l="商品链接"><a href="https://www.bee-link.com.cn" target="_blank" rel="noopener">零刻中国官网</a></td></tr>
+      <tr><td class="n">7</td><td data-l="型号"><b>零刻 GTR9 Pro</b></td><td data-l="配置">395</td><td data-l="USB 3.0 情况">待核实</td><td class="price mono" data-l="人民币价">¥26,999</td><td data-l="来源">零刻中国官网</td><td data-l="状态"><span class="tag ok">在售</span></td><td data-l="商品链接"><a href="https://www.bee-link.com.cn" target="_blank" rel="noopener">零刻中国官网</a></td></tr>
+      <tr><td class="n">8</td><td data-l="型号"><b>零刻 ME Pro</b></td><td data-l="配置">四盘位，N150</td><td data-l="USB 3.0 情况">待核实</td><td class="price mono" data-l="人民币价">¥2,699</td><td data-l="来源">零刻中国官网</td><td data-l="状态"><span class="tag ok">在售</span></td><td data-l="商品链接"><a href="https://www.bee-link.com.cn" target="_blank" rel="noopener">零刻中国官网</a></td></tr>
+      <tr><td class="n">9</td><td data-l="型号"><b>零刻 SER9 / SER9 Pro</b></td><td data-l="配置">H255（淘宝页未分 SKU）</td><td data-l="USB 3.0 情况">合格：2×USB 3.2 10Gbps + 1×USB4 + 1×Type-C，共 4 个 ≥USB 3.0 口</td><td class="price mono" data-l="人民币价">¥3,999</td><td data-l="来源">淘宝 · 零刻旗舰店（显示价）</td><td data-l="状态"><span class="tag ok">在售</span></td><td data-l="商品链接"><a href="https://www.taobao.com/list/item/cGpud2VZdmtlYkVsSUMzQm9WakFRZz09.htm" target="_blank" rel="noopener">淘宝商品页</a></td></tr>
+      <tr><td class="n">10</td><td data-l="型号"><b>铭凡 UM880 / UM890 Pro</b></td><td data-l="配置">淘宝页未分 SKU</td><td data-l="USB 3.0 情况">待核实</td><td class="price mono" data-l="人民币价">¥3,399</td><td data-l="来源">淘宝 · 夏朗数码专营店（显示价）</td><td data-l="状态"><span class="tag ok">在售</span></td><td data-l="商品链接"><a href="https://www.taobao.com/list/item/S0dZVnlxbmJpbmVOVW5EZVlKTE1Rdz09.htm" target="_blank" rel="noopener">淘宝商品页</a></td></tr>
+      <tr><td class="n">11</td><td data-l="型号"><b>零刻 EQ12 Pro / SEi14 125H / SER8 8845HS / SER5 / Mini S12 Pro</b></td><td data-l="配置">清单老型号</td><td data-l="USB 3.0 情况">—</td><td class="price" data-l="人民币价"><span class="noprice">查不到</span></td><td data-l="来源">零刻中国官网无购买页</td><td data-l="状态"><span class="tag mut">查不到</span></td><td data-l="商品链接"><span class="noprice">查不到</span></td></tr>
+    </tbody></table></div>
+</section>
+
+<section aria-labelledby="pi-h">
+  <div class="sec-head"><h2 id="pi-h">明细二 · 树莓派</h2><p>来源：微雪中国站、e络盟中国站；淘宝价仅作显示价记录。</p></div>
+  <div class="shell"><table class="dt" id="table-pi">
+    <thead><tr><th>序号</th><th>型号</th><th>配置</th><th>USB 3.0 情况</th><th>人民币价</th><th>来源</th><th>状态</th><th>商品链接</th></tr></thead>
+    <tbody>
+      <tr><td class="n">1</td><td data-l="型号"><b>Raspberry Pi 5</b></td><td data-l="配置">1GB</td><td data-l="USB 3.0 情况">内置 2×USB 3.0</td><td class="price mono" data-l="人民币价">¥570</td><td data-l="来源">微雪中国站</td><td data-l="状态"><span class="tag ok">在售</span></td><td data-l="商品链接"><a href="https://www.waveshare.net/left_column/Raspberry-Pi-Board-Kit.htm" target="_blank" rel="noopener">微雪树莓派分类页</a></td></tr>
+      <tr><td class="n">2</td><td data-l="型号"><b>Raspberry Pi 5</b></td><td data-l="配置">2GB</td><td data-l="USB 3.0 情况">内置 2×USB 3.0</td><td class="price" data-l="人民币价"><span class="noprice">查不到</span></td><td data-l="来源">微雪中国站未标价</td><td data-l="状态"><span class="tag mut">查不到</span></td><td data-l="商品链接"><a href="https://www.waveshare.net/left_column/Raspberry-Pi-Board-Kit.htm" target="_blank" rel="noopener">微雪树莓派分类页</a></td></tr>
+      <tr><td class="n">3</td><td data-l="型号"><b>Raspberry Pi 5</b></td><td data-l="配置">4GB</td><td data-l="USB 3.0 情况">内置 2×USB 3.0</td><td class="price mono" data-l="人民币价">¥909.66<span class="sub">含税，e络盟有货；微雪 ¥1,299</span></td><td data-l="来源">e络盟中国站 / 微雪中国站</td><td data-l="状态"><span class="tag ok">有货</span></td><td data-l="商品链接"><a href="https://www.element14.cn" target="_blank" rel="noopener">e络盟中国站</a><br><a href="https://www.waveshare.net/left_column/Raspberry-Pi-Board-Kit.htm" target="_blank" rel="noopener">微雪树莓派分类页</a></td></tr>
+      <tr><td class="n">4</td><td data-l="型号"><b>Raspberry Pi 5</b></td><td data-l="配置">8GB</td><td data-l="USB 3.0 情况">内置 2×USB 3.0</td><td class="price mono" data-l="人民币价">¥1,447.18<span class="sub">含税，e络盟有货；微雪 ¥1,739</span></td><td data-l="来源">e络盟中国站 / 微雪中国站</td><td data-l="状态"><span class="tag ok">有货</span></td><td data-l="商品链接"><a href="https://www.element14.cn" target="_blank" rel="noopener">e络盟中国站</a><br><a href="https://www.waveshare.net/left_column/Raspberry-Pi-Board-Kit.htm" target="_blank" rel="noopener">微雪树莓派分类页</a></td></tr>
+      <tr><td class="n">5</td><td data-l="型号"><b>Raspberry Pi 5</b></td><td data-l="配置">16GB</td><td data-l="USB 3.0 情况">内置 2×USB 3.0</td><td class="price mono" data-l="人民币价">¥3,099</td><td data-l="来源">微雪中国站</td><td data-l="状态"><span class="tag ok">在售</span></td><td data-l="商品链接"><a href="https://www.waveshare.net/left_column/Raspberry-Pi-Board-Kit.htm" target="_blank" rel="noopener">微雪树莓派分类页</a></td></tr>
+      <tr><td class="n">6</td><td data-l="型号"><b>Raspberry Pi 4B</b></td><td data-l="配置">2GB / 3GB / 4GB / 8GB</td><td data-l="USB 3.0 情况">内置 2×USB 3.0（双口共享带宽）</td><td class="price mono" data-l="人民币价">¥610 / ¥700 / ¥999 / ¥1,399</td><td data-l="来源">微雪中国站</td><td data-l="状态"><span class="tag ok">在售</span></td><td data-l="商品链接"><a href="https://www.waveshare.net/left_column/Raspberry-Pi-Board-Kit.htm" target="_blank" rel="noopener">微雪树莓派分类页</a></td></tr>
+      <tr><td class="n">7</td><td data-l="型号"><b>Raspberry Pi 400 / 500 / 500+</b></td><td data-l="配置">键盘一体机</td><td data-l="USB 3.0 情况">内置 2×USB 3.0</td><td class="price mono" data-l="人民币价">¥593.88 / ¥1,364 / ¥3,094</td><td data-l="来源">微雪中国站</td><td data-l="状态"><span class="tag ok">在售</span></td><td data-l="商品链接"><a href="https://www.waveshare.net/left_column/Raspberry-Pi-Board-Kit.htm" target="_blank" rel="noopener">微雪树莓派分类页</a></td></tr>
+      <tr><td class="n">8</td><td data-l="型号"><b>Compute Module 5（CM5104032）</b></td><td data-l="配置">4GB + 32GB，有 WiFi（注意：不是 8GB+32GB）</td><td data-l="USB 3.0 情况">本体引出 2×USB 3.0，须配载板</td><td class="price mono" data-l="人民币价">¥1,359</td><td data-l="来源">微雪中国站</td><td data-l="状态"><span class="tag ok">在售</span></td><td data-l="商品链接"><a href="https://www.waveshare.net/left_column/Raspberry-Pi-Board-Kit.htm" target="_blank" rel="noopener">微雪树莓派分类页</a></td></tr>
+      <tr><td class="n">9</td><td data-l="型号"><b>CM5 载板</b></td><td data-l="配置">官方 IO Board / 微雪 IO-BASE-A / IO-BASE-B</td><td data-l="USB 3.0 情况">均提供 2×USB 3.0</td><td class="price mono" data-l="人民币价">¥176 / ¥99.99 / ¥129.28</td><td data-l="来源">微雪中国站</td><td data-l="状态"><span class="tag ok">在售</span></td><td data-l="商品链接"><a href="https://www.waveshare.net/left_column/Raspberry-Pi-Board-Kit.htm" target="_blank" rel="noopener">微雪树莓派分类页</a></td></tr>
+      <tr><td class="n">10</td><td data-l="型号"><b>Compute Module 4（CM4）</b></td><td data-l="配置">本体 + 官方 IO 板</td><td data-l="USB 3.0 情况">无原生 USB 3.0，须 PCIe 插卡扩展（条件通过）</td><td class="price" data-l="人民币价"><span class="noprice">见分项核价</span></td><td data-l="来源">微雪中国站</td><td data-l="状态"><span class="tag warn">条件通过</span></td><td data-l="商品链接"><a href="https://www.waveshare.net/left_column/Raspberry-Pi-Board-Kit.htm" target="_blank" rel="noopener">微雪树莓派分类页</a></td></tr>
+      <tr><td class="n">11</td><td data-l="型号"><b>Raspberry Pi 5（淘宝）</b></td><td data-l="配置">4GB / 8GB 未分价</td><td data-l="USB 3.0 情况">内置 2×USB 3.0</td><td class="price mono" data-l="人民币价">¥521.05</td><td data-l="来源">淘宝商品页（显示价记录）</td><td data-l="状态"><span class="tag warn">显示价</span></td><td data-l="商品链接"><a href="https://www.taobao.com/list/item/SWZMc3BYZnpCTnlseVBhK3RRMjROZz09.htm" target="_blank" rel="noopener">淘宝商品页</a></td></tr>
+      <tr><td class="n">12</td><td data-l="型号"><b>CM5（淘宝）</b></td><td data-l="配置">标题与评价配置不一致，不能归到某一档</td><td data-l="USB 3.0 情况">本体引出 2×USB 3.0，须配载板</td><td class="price mono" data-l="人民币价">¥735</td><td data-l="来源">淘宝商品页（显示价记录）</td><td data-l="状态"><span class="tag warn">显示价</span></td><td data-l="商品链接"><a href="https://world.taobao.com/item/RXdTUEJBNm5yaExqTjZyMUxUeDdEdz09.htm" target="_blank" rel="noopener">淘宝商品页</a></td></tr>
+      <tr><td class="n">13</td><td data-l="型号"><b>Pi 3B / 3B+、Pi Zero 系列</b></td><td data-l="配置">—</td><td data-l="USB 3.0 情况">无 USB 3.0，无扩展途径</td><td class="price" data-l="人民币价">—</td><td data-l="来源">—</td><td data-l="状态"><span class="tag out">不推荐</span></td><td data-l="商品链接"><span class="noprice">查不到</span></td></tr>
+    </tbody></table></div>
+</section>
+
+<section aria-labelledby="fpga-h">
+  <div class="sec-head"><h2 id="fpga-h">明细三 · FPGA（AMD Kria）</h2><p>来源：element14 中国、DigiKey 中国（得捷），价格含税。</p></div>
+  <div class="shell"><table class="dt" id="table-fpga">
+    <thead><tr><th>序号</th><th>型号</th><th>配置</th><th>USB 3.0 情况</th><th>人民币价</th><th>来源</th><th>状态</th><th>商品链接</th></tr></thead>
+    <tbody>
+      <tr><td class="n">1</td><td data-l="型号"><b>KV260</b></td><td data-l="配置">Vision AI 入门套件</td><td data-l="USB 3.0 情况">套件接口按下单前核实为准</td><td class="price mono" data-l="人民币价">¥2,422.74<span class="sub">得捷 ¥2,547.31，有现货 108 件</span></td><td data-l="来源">element14 中国 / 得捷中国</td><td data-l="状态"><span class="tag warn">分渠道</span> element14 无现货</td><td data-l="商品链接"><a href="https://www.element14.cn" target="_blank" rel="noopener">e络盟中国站</a><br><a href="https://www.digikey.cn" target="_blank" rel="noopener">得捷中国站</a></td></tr>
+      <tr><td class="n">2</td><td data-l="型号"><b>KR260</b></td><td data-l="配置">Robotics 入门套件</td><td data-l="USB 3.0 情况">套件接口按下单前核实为准</td><td class="price mono" data-l="人民币价">¥3,564.71<span class="sub">淘宝显示价 ¥3,980（风知意电子）</span></td><td data-l="来源">element14 中国 / 淘宝</td><td data-l="状态"><span class="tag warn">下单前再核库存</span></td><td data-l="商品链接"><a href="https://www.element14.cn" target="_blank" rel="noopener">e络盟中国站</a><br><a href="https://www.taobao.com/list/item/VWVxajV4YkZFdFBpeEQ1RmpNbTVPdz09.htm" target="_blank" rel="noopener">淘宝商品页（KR260）</a></td></tr>
+      <tr><td class="n">3</td><td data-l="型号"><b>KD240</b></td><td data-l="配置">电机控制开发套件</td><td data-l="USB 3.0 情况">套件接口按下单前核实为准</td><td class="price mono" data-l="人民币价">¥3,918.38</td><td data-l="来源">element14 中国 / 得捷中国（含税）</td><td data-l="状态"><span class="tag ok">有货</span> element14 30 件 / 得捷 270 件</td><td data-l="商品链接"><a href="https://www.element14.cn" target="_blank" rel="noopener">e络盟中国站</a><br><a href="https://www.digikey.cn" target="_blank" rel="noopener">得捷中国站</a></td></tr>
+      <tr><td class="n">4</td><td data-l="型号"><b>K26 SOM 商用版</b></td><td data-l="配置">商用级 SOM（需另配载板）</td><td data-l="USB 3.0 情况">取决于载板</td><td class="price mono" data-l="人民币价">¥3,467.22</td><td data-l="来源">element14 中国</td><td data-l="状态"><span class="tag out">无现货</span></td><td data-l="商品链接"><a href="https://www.element14.cn" target="_blank" rel="noopener">e络盟中国站</a></td></tr>
+      <tr><td class="n">5</td><td data-l="型号"><b>K26 SOM 工业版</b></td><td data-l="配置">工业级 SOM（需另配载板）</td><td data-l="USB 3.0 情况">取决于载板</td><td class="price mono" data-l="人民币价">¥4,800.70</td><td data-l="来源">得捷中国</td><td data-l="状态"><span class="tag out">0 现货</span></td><td data-l="商品链接"><a href="https://www.digikey.cn" target="_blank" rel="noopener">得捷中国站</a></td></tr>
+      <tr><td class="n">6</td><td data-l="型号"><b>K24 SOM 商用版</b></td><td data-l="配置">商用级 SOM（需另配载板）</td><td data-l="USB 3.0 情况">取决于载板</td><td class="price mono" data-l="人民币价">¥2,584.35</td><td data-l="来源">得捷中国</td><td data-l="状态"><span class="tag ok">有货</span> 14 件</td><td data-l="商品链接"><a href="https://www.digikey.cn" target="_blank" rel="noopener">得捷中国站</a></td></tr>
+      <tr><td class="n">7</td><td data-l="型号"><b>KV260 / KD240（淘宝）</b></td><td data-l="配置">淘宝页 ¥180 为电源适配器价、¥3 为配件价，均非套件价</td><td data-l="USB 3.0 情况">—</td><td class="price" data-l="人民币价"><span class="noprice">套件价查不到</span></td><td data-l="来源">淘宝商品页</td><td data-l="状态"><span class="tag mut">查不到</span></td><td data-l="商品链接"><a href="https://www.taobao.com/list/item/MHBINXgvUWFaU1dXVE1pa0dkWTU2QT09.htm" target="_blank" rel="noopener">淘宝商品页（KV260）</a><br><a href="https://www.taobao.com/list/item/QjJhOGxMVHczVUJMYlRjOWNBUTdvZz09.htm" target="_blank" rel="noopener">淘宝商品页（KD240）</a></td></tr>
+    </tbody></table></div>
+</section>
+
+<section aria-labelledby="notes-h">
+  <div class="sec-head"><h2 id="notes-h">报价口径与说明</h2></div>
+  <div class="notes"><ul>
+    <li><b>只含主机：</b>本单价格仅为主机本身，不含相机、镜头、光源、标定板，不含软件。</li>
+    <li><b>淘宝显示价未分 SKU：</b>未登录无法选 SKU 分价，淘宝价不能等同于某一具体配置的成交价，仅作显示价记录。</li>
+    <li><b>旧帖价不当现价、美元价不换算：</b>本单未采用旧帖价；无人民币价的不换算、不当人民币现价，查不到直接写查不到。</li>
+    <li><b>USB 3.0 是采集硬条件：</b>接相机采集须 USB 3.0 以上；内置或外接扩展均可，无 USB 3.0 且无扩展途径的型号已标“不推荐”。</li>
+    <li><b>FPGA -ED 版提醒：</b>-ED 版已停产不可订；AMD 数据手册旧条款与停产通知冲突，下单前须向分销商核实 -G 版能否发中国。</li>
+    <li><b>商品链接列：</b>每行已附来源渠道的链接（官网 / 分销商页或淘宝商品页），点开即到对应页面；确实没有链接的才写“查不到”，未编造链接。</li>
+  </ul></div>
+</section>
+
+<section aria-labelledby="software-h">
+  <div class="sec-head"><h2 id="software-h">软件集成</h2></div>
+  <div class="software"><p>软件集成（待填）— 不计入本单价格</p></div>
+</section>
+
+<footer>报价日期：2026-11-28 · 价格核查日期：2026-11-28 · 本单仅含主机本身，不含相机、镜头、光源、标定板与软件。库存与价格以下单时渠道页面为准。</footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+(function(){var btn=document.getElementById('btn-export');var st=document.getElementById('export-status');btn.addEventListener('click',function(){st.classList.remove('err');if(typeof XLSX==='undefined'){st.textContent='导出组件未加载，请检查网络后重试。';st.classList.add('err');return}btn.disabled=true;st.textContent='正在生成…';try{var wb=XLSX.utils.book_new();var defs=[['table-summary','总价汇总',null],['table-mini','MiniPC',[6,26,30,44,18,26,18,12]],['table-pi','树莓派',[6,26,34,40,30,26,18,12]],['table-fpga','FPGA',[6,24,36,28,30,26,22,12]]];defs.forEach(function(d){var t=document.getElementById(d[0]);var ws=XLSX.utils.table_to_sheet(t);if(d[2])ws['!cols']=d[2].map(function(w){return{wch:w}});XLSX.utils.book_append_sheet(wb,ws,d[1])});XLSX.writeFile(wb,'便携式DIC系统主机报价单-2026-11-28.xlsx');st.textContent='已导出 Excel（含总价汇总与三张明细表）。'}catch(e){st.textContent='导出失败，请重试。';st.classList.add('err')}finally{btn.disabled=false}})})();
+</script>
+</body>
+</html>
